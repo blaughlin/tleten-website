@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Guidelines — tleten</title>
+    <meta name="description" content="Community Guidelines for tleten — keeping the platform safe, respectful, and trustworthy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .legal-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 40px 100px;
+        }
+
+        .legal-content h1 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .legal-content > p:first-of-type {
+            margin-bottom: 40px;
+        }
+
+        .legal-content h2 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+
+        .legal-content p {
+            margin-bottom: 16px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content li {
+            margin-bottom: 4px;
+        }
+
+        .legal-content a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 28px auto 0;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            .legal-content { padding: 40px 24px 80px; }
+            .legal-content h1 { font-size: 1.8rem; }
+            footer { padding: 40px 24px; }
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">tleten</a>
+        <a href="index.html#download" class="nav-cta">Download</a>
+    </nav>
+
+    <main class="legal-content">
+        <h1>Community Guidelines</h1>
+        <p>Tleten is built to help people share food and build community. To keep the platform safe, respectful, and trustworthy, all users must follow these guidelines.</p>
+        <p>If you violate these guidelines, we may remove content, restrict your account, suspend you, or permanently remove you from the platform.</p>
+
+        <h2>1. Be Honest</h2>
+        <p>Only post Items that accurately match what you are offering.</p>
+        <p>Be truthful about:</p>
+        <ul>
+            <li>ingredients</li>
+            <li>portion size</li>
+            <li>freshness</li>
+            <li>prep date</li>
+            <li>storage needs</li>
+            <li>whether an Item is homemade, homegrown, gathered, or commercially prepared</li>
+        </ul>
+        <p>Do not post misleading descriptions or photos.</p>
+
+        <h2>2. Disclose Ingredients and Allergens</h2>
+        <p>If you post food, list ingredients as accurately as you can.</p>
+        <p>You should clearly identify common allergens whenever possible, including:</p>
+        <ul>
+            <li>milk</li>
+            <li>eggs</li>
+            <li>fish</li>
+            <li>shellfish</li>
+            <li>tree nuts</li>
+            <li>peanuts</li>
+            <li>wheat</li>
+            <li>soy</li>
+            <li>sesame</li>
+        </ul>
+        <p>If you are unsure, say so.</p>
+
+        <h2>3. Only Share Safe, Legal Items</h2>
+        <p>Only post Items that are safe and legal to share in your area.</p>
+        <p>Do not post:</p>
+        <ul>
+            <li>spoiled food</li>
+            <li>expired food</li>
+            <li>contaminated or unsafe food</li>
+            <li>illegal items</li>
+            <li>alcohol (unless specifically allowed)</li>
+            <li>tobacco or nicotine products</li>
+            <li>cannabis or controlled substances</li>
+            <li>hazardous materials</li>
+            <li>prohibited animal products or regulated foods where restricted by law</li>
+        </ul>
+
+        <h2>4. Use Good Food Handling Practices</h2>
+        <p>If you prepare food for others:</p>
+        <ul>
+            <li>wash hands and equipment</li>
+            <li>keep hot foods hot and cold foods cold</li>
+            <li>avoid cross-contamination</li>
+            <li>use clean containers</li>
+            <li>label clearly when possible</li>
+            <li>be honest about how and when the food was prepared</li>
+        </ul>
+        <p>If you aren't confident the food is safe, don't post it.</p>
+
+        <h2>5. Respect Other Users</h2>
+        <p>Be kind, respectful, and clear in messages and comments.</p>
+        <p>Do not:</p>
+        <ul>
+            <li>harass or threaten others</li>
+            <li>discriminate</li>
+            <li>spam</li>
+            <li>pressure users into off-platform behavior they are uncomfortable with</li>
+            <li>send inappropriate or sexual content</li>
+            <li>scam or mislead people</li>
+        </ul>
+
+        <h2>6. Meet Safely</h2>
+        <p>When exchanging Items:</p>
+        <ul>
+            <li>meet in public places when possible</li>
+            <li>protect your privacy</li>
+            <li>do not share unnecessary personal information</li>
+            <li>trust your instincts</li>
+            <li>do not proceed if something feels unsafe</li>
+        </ul>
+        <p>tleten does not supervise in-person meetups.</p>
+
+        <h2>7. No Fraud or Manipulation</h2>
+        <p>Do not:</p>
+        <ul>
+            <li>create fake accounts</li>
+            <li>impersonate someone else</li>
+            <li>post fake listings</li>
+            <li>manipulate reviews or ratings</li>
+            <li>abuse referral systems or promotions</li>
+            <li>misrepresent the origin or quality of an Item</li>
+        </ul>
+
+        <h2>8. Respect Local Laws</h2>
+        <p>You are responsible for understanding and following local laws, including any rules related to:</p>
+        <ul>
+            <li>home-prepared food</li>
+            <li>cottage food</li>
+            <li>labeling</li>
+            <li>licensing</li>
+            <li>taxes</li>
+            <li>delivery</li>
+            <li>food sales or barter</li>
+        </ul>
+        <p>If you are not sure something is allowed, do not list it.</p>
+
+        <h2>9. Report Problems</h2>
+        <p>If you see unsafe, illegal, misleading, or abusive behavior, use the in-app reporting tools or contact us at <a href="mailto:support@tleten.com">support@tleten.com</a></p>
+        <p>Please report:</p>
+        <ul>
+            <li>unsafe food</li>
+            <li>harassment</li>
+            <li>scams</li>
+            <li>impersonation</li>
+            <li>threatening behavior</li>
+            <li>illegal listings</li>
+            <li>repeated dishonesty</li>
+        </ul>
+
+        <h2>10. Enforcement</h2>
+        <p>We may take any of the following actions if we believe a user or listing violates these guidelines:</p>
+        <ul>
+            <li>remove the listing</li>
+            <li>issue a warning</li>
+            <li>limit messaging or posting</li>
+            <li>temporarily suspend the account</li>
+            <li>permanently ban the account</li>
+            <li>report conduct to authorities where appropriate</li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 tleten. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

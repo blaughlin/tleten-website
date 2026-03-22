@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tleten — Share what you make, grow, and gather.</title>
+    <meta name="description" content="tleten is a community-based app for sharing food with people nearby. From homemade meals to fresh eggs and local specialties.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --secondary-container: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --surface-container: #f0eee9;
+            --surface-container-high: #eae8e3;
+            --surface-container-lowest: #ffffff;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --primary-fixed-dim: #5a8a5e;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav — Glassmorphism */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link {
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--sans);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 40px 80px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-logo {
+            display: block;
+            height: 130px;
+            width: auto;
+            margin-bottom: 36px;
+        }
+
+        .hero-text h1 {
+            font-family: var(--sans);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--on-surface);
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text h1 span {
+            color: #E67E22;
+        }
+
+        .hero-text h1 .line1 {
+            white-space: nowrap;
+            color: inherit;
+        }
+
+        .hero-text h1 .line1 span {
+            color: #E67E22;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--on-surface-variant);
+            margin-bottom: 36px;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .app-store-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--on-primary);
+        }
+
+        /* Phone mockup */
+        .phone-mockup {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            width: 280px;
+            height: 560px;
+            background: var(--surface-container-high);
+            border-radius: 40px;
+            padding: 14px;
+            box-shadow: var(--shadow-ambient), 0 4px 16px rgba(27, 28, 25, 0.04);
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 20px 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .phone-header {
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: var(--serif);
+            color: var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .mock-card {
+            background: var(--surface-container-lowest);
+            border-radius: var(--radius-xl);
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mock-card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: var(--serif);
+            color: var(--primary);
+        }
+
+        .mock-card-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: var(--surface-container-high);
+        }
+
+        .mock-card-bar.short { width: 60%; }
+
+        .mock-card-img {
+            height: 48px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--primary-fixed), #b8d8b8);
+        }
+
+        .mock-tabs {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+        }
+
+        .mock-tab {
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: var(--surface-container-high);
+        }
+
+        .mock-tab.active {
+            background: var(--primary);
+        }
+
+        /* Features */
+        .features {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 56px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--surface-container-lowest);
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-fixed);
+            border-radius: var(--radius-xl);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feature-card h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--surface-container-low);
+            padding: 80px 40px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            max-width: 260px;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: var(--serif);
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            line-height: 1.6;
+        }
+
+        .step-connector {
+            display: flex;
+            align-items: center;
+            padding-top: 24px;
+            color: var(--surface-container-high);
+            font-size: 1.5rem;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 100px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--on-surface-variant);
+            margin-bottom: 36px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 28px auto 0;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 20px;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 48px 24px;
+                text-align: center;
+                gap: 48px;
+            }
+
+            .hero-logo {
+                height: 90px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .features {
+                padding: 64px 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .how-it-works {
+                padding: 64px 24px;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-connector {
+                display: none;
+            }
+
+            .phone {
+                width: 240px;
+                height: 480px;
+            }
+
+            .cta {
+                padding: 64px 24px;
+            }
+
+            footer {
+                padding: 40px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="#" class="nav-brand">tleten</a>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">What You Can Do</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-text">
+            <img src="hero-logo.png" alt="tleten" class="hero-logo">
+            <h1><span class="line1">Share what you <span>make</span>,</span> <span>grow</span>, and <span>gather</span>.</h1>
+            <p>tleten is a community-based app for sharing food with people nearby. From homemade meals and baked goods to fresh eggs, honey, berries, wild game, and fish — tleten helps neighbors connect through local food.</p>
+            <a href="#" class="app-store-btn" id="download">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+            </a>
+        </div>
+        <div class="phone-mockup">
+            <div class="phone">
+                <div class="phone-screen">
+                    <div class="phone-header">Find Meals</div>
+                    <div class="mock-card">
+                        <div class="mock-card-img"></div>
+                        <div class="mock-card-title">Homemade Sourdough</div>
+                        <div class="mock-card-bar"></div>
+                        <div class="mock-card-bar short"></div>
+                    </div>
+                    <div class="mock-card">
+                        <div class="mock-card-img"></div>
+                        <div class="mock-card-title">Wild Blueberries</div>
+                        <div class="mock-card-bar"></div>
+                        <div class="mock-card-bar short"></div>
+                    </div>
+                    <div class="mock-card">
+                        <div class="mock-card-img"></div>
+                        <div class="mock-card-title">Smoked Salmon</div>
+                        <div class="mock-card-bar"></div>
+                    </div>
+                    <div class="mock-tabs">
+                        <div class="mock-tab active"></div>
+                        <div class="mock-tab"></div>
+                        <div class="mock-tab"></div>
+                        <div class="mock-tab"></div>
+                        <div class="mock-tab"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <h2 class="section-title">What you can do</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L14 7H10L12 2Z"/><line x1="12" y1="7" x2="12" y2="16"/><path d="M7 22H17"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/><path d="M5 12c0-2 1.5-5 7-5s7 3 7 5"/></svg>
+                </div>
+                <h3>Share Your Food</h3>
+                <p>Post homemade meals, baked goods, garden produce, or anything you'd like to share with neighbors.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-4.24 4.24"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/></svg>
+                </div>
+                <h3>Discover Nearby</h3>
+                <p>Browse food offerings from people in your community. Find everything from fresh eggs to smoked fish.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M8 3l4 5 4-5"/><path d="M8 21l4-5 4 5"/><path d="M12 8v8"/><path d="M3 12h18"/></svg>
+                </div>
+                <h3>Get Matched</h3>
+                <p>Show interest in what others share. When it's mutual, you're matched and ready to arrange a swap.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Message &amp; Arrange</h3>
+                <p>Chat directly with your match to coordinate pickup, drop-off, or meeting details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <h2 class="section-title">How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Post</h3>
+                <p>Share what you've made, grown, or gathered. Add photos and a quick description.</p>
+            </div>
+            <div class="step-connector" aria-hidden="true">&rarr;</div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Match</h3>
+                <p>Browse your neighbors' posts and show interest. When it's mutual, you're matched.</p>
+            </div>
+            <div class="step-connector" aria-hidden="true">&rarr;</div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Arrange</h3>
+                <p>Message your match to work out the details and enjoy your food swap.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="download">
+        <h2>Ready to share?</h2>
+        <p>Join your neighbors on tleten and start sharing food with your community today.</p>
+        <a href="#" class="app-store-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;fill:#fff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on the App Store
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 tleten. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

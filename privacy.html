@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — tleten</title>
+    <meta name="description" content="Privacy Policy for tleten — how we collect, use, store, and share your information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .legal-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 40px 100px;
+        }
+
+        .legal-content h1 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .legal-meta {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            margin-bottom: 40px;
+        }
+
+        .legal-content h2 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+
+        .legal-content h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .legal-content p {
+            margin-bottom: 16px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content li {
+            margin-bottom: 4px;
+        }
+
+        .legal-content a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 28px auto 0;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            .legal-content { padding: 40px 24px 80px; }
+            .legal-content h1 { font-size: 1.8rem; }
+            footer { padding: 40px 24px; }
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">tleten</a>
+        <a href="index.html#download" class="nav-cta">Download</a>
+    </nav>
+
+    <main class="legal-content">
+        <h1>Privacy Policy</h1>
+        <p class="legal-meta"><strong>Effective Date:</strong> 3/17/2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> 3/17/2026</p>
+
+        <p>This Privacy Policy explains how tleten ("we," "us," or "our") collects, uses, stores, and shares information when you use the tleten mobile application, website, and related services (collectively, the "Service").</p>
+        <p>By using the Service, you agree to this Privacy Policy.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We may collect the following types of information:</p>
+
+        <h3>a. Account Information</h3>
+        <ul>
+            <li>name or display name</li>
+            <li>username</li>
+            <li>email address</li>
+            <li>profile photo</li>
+            <li>authentication provider information (such as Sign in with Apple or Google)</li>
+        </ul>
+
+        <h3>b. Profile and Listing Information</h3>
+        <ul>
+            <li>bio or profile details</li>
+            <li>item listings and descriptions</li>
+            <li>ingredients and allergen information</li>
+            <li>photos uploaded to listings</li>
+            <li>availability or pickup details</li>
+        </ul>
+
+        <h3>c. Messages and User Content</h3>
+        <ul>
+            <li>messages exchanged through the Service</li>
+            <li>comments, reviews, ratings, and reports</li>
+            <li>other content you upload or submit</li>
+        </ul>
+
+        <h3>d. Device and Usage Information</h3>
+        <ul>
+            <li>device type</li>
+            <li>operating system</li>
+            <li>app version</li>
+            <li>IP address</li>
+            <li>approximate location (if enabled)</li>
+            <li>crash logs</li>
+            <li>analytics and usage data</li>
+        </ul>
+
+        <h3>e. Transaction Information</h3>
+        <p>If payments are enabled in the future, we may collect or receive:</p>
+        <ul>
+            <li>transaction history</li>
+            <li>payment status</li>
+            <li>refund or dispute records</li>
+        </ul>
+        <p>We do not store full payment card information ourselves unless explicitly stated. Payments may be processed by third-party providers.</p>
+
+        <h3>f. Location Information</h3>
+        <p>If you allow location access, we may collect approximate or precise location information to help show nearby listings, pickups, or local features.</p>
+        <p>You can disable location permissions in your device settings.</p>
+
+        <h2>2. How We Use Information</h2>
+        <p>We may use your information to:</p>
+        <ul>
+            <li>create and manage your account;</li>
+            <li>authenticate you;</li>
+            <li>display your profile and listings to other users;</li>
+            <li>enable messaging and community interactions;</li>
+            <li>help users find nearby listings;</li>
+            <li>improve safety, moderation, and trust;</li>
+            <li>respond to support requests;</li>
+            <li>detect fraud, abuse, or policy violations;</li>
+            <li>analyze app performance and usage;</li>
+            <li>send service-related notices and updates;</li>
+            <li>enforce our Terms, Community Guidelines, and other policies; and</li>
+            <li>comply with legal obligations.</li>
+        </ul>
+
+        <h2>3. How We Share Information</h2>
+        <p>We may share information in the following ways:</p>
+
+        <h3>a. With Other Users</h3>
+        <p>Certain information is visible to other users as part of the Service, including:</p>
+        <ul>
+            <li>your username or display name</li>
+            <li>profile photo</li>
+            <li>public profile details you choose to share</li>
+            <li>listings, descriptions, and photos</li>
+            <li>messages and interactions with users you communicate with</li>
+            <li>reviews, ratings, or comments (if enabled)</li>
+        </ul>
+
+        <h3>b. With Service Providers</h3>
+        <p>We may share information with vendors and service providers who help us operate the Service, such as:</p>
+        <ul>
+            <li>cloud hosting providers</li>
+            <li>authentication providers</li>
+            <li>analytics providers</li>
+            <li>messaging infrastructure</li>
+            <li>push notification services</li>
+            <li>payment processors (if enabled)</li>
+            <li>customer support tools</li>
+        </ul>
+
+        <h3>c. For Legal Reasons</h3>
+        <p>We may disclose information if we believe it is reasonably necessary to:</p>
+        <ul>
+            <li>comply with applicable law or legal process;</li>
+            <li>protect users or the public from harm;</li>
+            <li>investigate fraud, abuse, or illegal activity;</li>
+            <li>enforce our Terms or policies; or</li>
+            <li>protect our rights, property, or safety.</li>
+        </ul>
+
+        <h3>d. Business Transfers</h3>
+        <p>If tleten is involved in a merger, acquisition, sale of assets, financing, or similar transaction, user information may be transferred as part of that transaction.</p>
+
+        <h2>4. Firebase and Third-Party Services</h2>
+        <p>The Service may use third-party services, including Firebase and related Google services, for:</p>
+        <ul>
+            <li>authentication</li>
+            <li>database and cloud storage</li>
+            <li>file storage</li>
+            <li>messaging</li>
+            <li>analytics</li>
+            <li>crash reporting</li>
+            <li>notifications</li>
+        </ul>
+        <p>These providers may collect and process data according to their own privacy policies.</p>
+        <p>If you use Sign in with Apple, Google Sign-In, or other third-party authentication methods, those providers may share certain information with us (such as your email address, name, or authentication identifier) subject to their policies and your settings.</p>
+
+        <h2>5. Data Retention</h2>
+        <p>We retain information for as long as reasonably necessary to:</p>
+        <ul>
+            <li>provide the Service;</li>
+            <li>maintain your account;</li>
+            <li>resolve disputes;</li>
+            <li>enforce our agreements;</li>
+            <li>improve safety and moderation; and</li>
+            <li>comply with legal obligations.</li>
+        </ul>
+        <p>Even if you delete your account, we may retain certain information where legally required or where reasonably necessary for fraud prevention, abuse detection, dispute resolution, or recordkeeping.</p>
+
+        <h2>6. Your Choices</h2>
+        <p>Depending on your location and applicable law, you may have the ability to:</p>
+        <ul>
+            <li>access or update your profile information;</li>
+            <li>change notification settings;</li>
+            <li>delete listings or content you posted;</li>
+            <li>disable location permissions;</li>
+            <li>request account deletion; and</li>
+            <li>request access to or deletion of certain personal information.</li>
+        </ul>
+        <p>To request account deletion or privacy assistance, contact us at <a href="mailto:support@tleten.com">support@tleten.com</a></p>
+
+        <h2>7. Account Deletion</h2>
+        <p>If you request deletion of your account:</p>
+        <ul>
+            <li>your profile may no longer be visible to other users;</li>
+            <li>some content may be removed or anonymized;</li>
+            <li>some information may be retained for legal, fraud prevention, safety, dispute, or technical reasons;</li>
+            <li>messages previously sent to other users may remain visible in their conversation history.</li>
+        </ul>
+
+        <h2>8. Security</h2>
+        <p>We use reasonable administrative, technical, and organizational measures to protect information.</p>
+        <p>However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+        <p>You are responsible for protecting your device, login credentials, and account access.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>The Service is not intended for children under 18.</p>
+        <p>We do not knowingly collect personal information from children under 18. If we learn that a child under 18 has created an account or provided personal information, we may remove that information and terminate the account.</p>
+
+        <h2>10. International Use</h2>
+        <p>The Service is intended primarily for users in the United States unless otherwise stated.</p>
+        <p>If you use the Service from outside the United States, you understand that your information may be processed and stored in the United States or other jurisdictions where our service providers operate.</p>
+
+        <h2>11. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time.</p>
+        <p>If we make material changes, we may provide notice through the Service, by email, or by other reasonable means. Continued use of the Service after the updated policy becomes effective means you accept the revised Privacy Policy.</p>
+
+        <h2>12. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or want to submit a privacy-related request, contact us at:</p>
+        <p>tleten<br>Email: <a href="mailto:support@tleten.com">support@tleten.com</a></p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 tleten. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

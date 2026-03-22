@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — tleten</title>
+    <meta name="description" content="Terms of Service for tleten — the rules governing your use of the tleten platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .legal-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 64px 40px 100px;
+        }
+
+        .legal-content h1 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .legal-meta {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            margin-bottom: 40px;
+        }
+
+        .legal-content h2 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+
+        .legal-content h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .legal-content p {
+            margin-bottom: 16px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--on-surface-variant);
+            line-height: 1.75;
+        }
+
+        .legal-content li {
+            margin-bottom: 4px;
+        }
+
+        .legal-content a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 28px auto 0;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            .legal-content { padding: 40px 24px 80px; }
+            .legal-content h1 { font-size: 1.8rem; }
+            footer { padding: 40px 24px; }
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">tleten</a>
+        <a href="index.html#download" class="nav-cta">Download</a>
+    </nav>
+
+    <main class="legal-content">
+        <h1>Terms of Service</h1>
+        <p class="legal-meta"><strong>Effective Date:</strong> 3/17/2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> 3/17/2026</p>
+
+        <p>Welcome to tleten ("tleten," "we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the tleten mobile application, website, and related services (collectively, the "Service").</p>
+        <p>By creating an account, accessing, or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Service.</p>
+
+        <h2>1. Overview of the Service</h2>
+        <p>tleten is a platform that allows users to connect with one another to share, exchange, barter, offer, request, donate, or otherwise transfer homemade meals, food items, ingredients, and other approved food-related goods ("Items").</p>
+        <p>tleten is only a technology platform. We facilitate connections between users, but we do not prepare, cook, package, inspect, store, transport, deliver, test, certify, endorse, or guarantee any Item offered through the Service.</p>
+        <p>All interactions, communications, exchanges, transactions, pickups, deliveries, and consumption of Items are solely between users.</p>
+
+        <h2>2. Eligibility</h2>
+        <p>To use the Service, you must:</p>
+        <ul>
+            <li>be at least 18 years old (or the age of majority in your jurisdiction, whichever is greater);</li>
+            <li>have the legal capacity to enter into a binding contract; and</li>
+            <li>comply with all applicable local, state, and federal laws.</li>
+        </ul>
+        <p>By using the Service, you represent and warrant that you meet these requirements.</p>
+
+        <h2>3. Platform-Only Role; No Food Handling or Inspection</h2>
+        <p>You acknowledge and agree that tleten:</p>
+        <ul>
+            <li>is not a restaurant, caterer, food manufacturer, grocery store, farmers market operator, health department, delivery carrier, or food safety authority;</li>
+            <li>does not verify the identity, training, licensing, qualifications, or food handling practices of users;</li>
+            <li>does not inspect home kitchens, food preparation environments, or storage conditions;</li>
+            <li>does not verify ingredients, allergen disclosures, nutritional claims, preparation methods, expiration dates, or legal compliance of any Item;</li>
+            <li>does not guarantee that any Item is safe, lawful, edible, accurately described, free of allergens, or suitable for your dietary needs; and</li>
+            <li>does not guarantee that any exchange, pickup, delivery, or transaction will be completed successfully.</li>
+        </ul>
+        <p>You use the Service at your own risk.</p>
+
+        <h2>4. User Accounts</h2>
+        <p>To access certain features of the Service, you may be required to create an account.</p>
+        <p>You agree to:</p>
+        <ul>
+            <li>provide accurate, current, and complete information;</li>
+            <li>maintain and promptly update your information;</li>
+            <li>keep your login credentials secure and confidential;</li>
+            <li>be responsible for all activity under your account; and</li>
+            <li>notify us immediately of any unauthorized use of your account.</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that contain false information, impersonate others, or otherwise violate these Terms.</p>
+
+        <h2>5. User Listings and User Responsibility</h2>
+        <p>Users may post listings, requests, profiles, photos, descriptions, comments, messages, ratings, and other content through the Service ("User Content").</p>
+        <p>If you offer or provide an Item, you agree that you are solely responsible for:</p>
+        <ul>
+            <li>the Item itself;</li>
+            <li>the safety, quality, freshness, legality, and condition of the Item;</li>
+            <li>the truthfulness and accuracy of your listing;</li>
+            <li>disclosing known ingredients and major allergens to the best of your ability;</li>
+            <li>using sanitary food handling and storage practices;</li>
+            <li>ensuring you are legally permitted to offer the Item in your jurisdiction; and</li>
+            <li>any injury, illness, loss, or damage caused by the Item.</li>
+        </ul>
+        <p>If you request, accept, or consume an Item, you agree that you are solely responsible for:</p>
+        <ul>
+            <li>reviewing the listing carefully;</li>
+            <li>asking questions about ingredients, allergens, preparation, storage, and timing;</li>
+            <li>using your own judgment before accepting or consuming the Item;</li>
+            <li>properly transporting, refrigerating, reheating, or storing the Item after pickup or delivery; and</li>
+            <li>deciding whether the Item is appropriate for your dietary or medical needs.</li>
+        </ul>
+
+        <h2>6. Food Safety and Allergen Warning</h2>
+        <p>Items offered through the Service may be prepared in private homes or other non-commercial environments that may not be inspected by any government authority.</p>
+        <p>By using the Service, you understand and agree that:</p>
+        <ul>
+            <li>Items may contain allergens, including but not limited to milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, soy, and sesame;</li>
+            <li>cross-contact or cross-contamination may occur even if ingredients are disclosed;</li>
+            <li>ingredients may be omitted, mislabeled, or unintentionally inaccurate;</li>
+            <li>Items may be undercooked, improperly stored, spoiled, contaminated, or otherwise unsafe;</li>
+            <li>dietary labels such as "gluten-free," "vegan," "keto," or similar may be inaccurate or based on the user's own understanding; and</li>
+            <li>consuming food obtained from other users involves inherent risks, including foodborne illness, allergic reaction, choking, injury, or, in rare cases, serious illness or death.</li>
+        </ul>
+        <p>You voluntarily assume all risks associated with obtaining, handling, transporting, storing, reheating, and consuming any Item obtained through the Service.</p>
+
+        <h2>7. No Medical, Dietary, or Nutritional Advice</h2>
+        <p>The Service does not provide medical, allergy, nutritional, or dietary advice.</p>
+        <p>Any information displayed in listings, profiles, messages, or elsewhere in the Service is provided by users for general informational purposes only and may be incomplete or inaccurate.</p>
+        <p>If you have allergies, food sensitivities, immune compromise, pregnancy-related restrictions, chronic health conditions, or other medical concerns, you should exercise extreme caution and consult a qualified healthcare professional where appropriate.</p>
+
+        <h2>8. Legal Compliance; Cottage Food and Local Laws</h2>
+        <p>You are solely responsible for understanding and complying with all laws, regulations, ordinances, and licensing requirements applicable to your use of the Service, including but not limited to:</p>
+        <ul>
+            <li>food safety laws;</li>
+            <li>cottage food laws;</li>
+            <li>home kitchen or home business rules;</li>
+            <li>labeling requirements;</li>
+            <li>tax obligations;</li>
+            <li>licensing or permit requirements;</li>
+            <li>restrictions on sale or exchange of certain foods;</li>
+            <li>delivery and transportation rules; and</li>
+            <li>consumer protection laws.</li>
+        </ul>
+        <p>tleten does not provide legal advice and does not guarantee that any listing or transaction is lawful in your jurisdiction.</p>
+
+        <h2>9. Prohibited Items and Prohibited Uses</h2>
+        <p>You may not use the Service to offer, request, exchange, sell, donate, or otherwise transfer:</p>
+        <ul>
+            <li>illegal items or substances;</li>
+            <li>alcohol, tobacco, nicotine, cannabis, or controlled substances, unless explicitly permitted by law and by the Service;</li>
+            <li>unsafe, spoiled, adulterated, contaminated, or knowingly expired food;</li>
+            <li>wild game, raw dairy, home-canned low-acid foods, or other regulated/high-risk food items where prohibited by law;</li>
+            <li>food prepared or sold in violation of applicable law;</li>
+            <li>stolen goods or counterfeit goods;</li>
+            <li>hazardous materials or items that could cause injury.</li>
+        </ul>
+        <p>You also may not:</p>
+        <ul>
+            <li>misrepresent an Item;</li>
+            <li>impersonate another person;</li>
+            <li>harass, threaten, stalk, or discriminate against other users;</li>
+            <li>post false reviews or fraudulent listings;</li>
+            <li>manipulate ratings, referrals, or promotions;</li>
+            <li>scrape, reverse engineer, or interfere with the Service;</li>
+            <li>use the Service for spam, scams, or unauthorized advertising.</li>
+        </ul>
+        <p>We reserve the right to remove any listing or content and suspend or terminate any account at our sole discretion.</p>
+
+        <h2>10. Pickups, Meetups, Deliveries, and User Safety</h2>
+        <p>Users are solely responsible for arranging pickups, meetups, deliveries, and exchanges.</p>
+        <p>tleten does not supervise or control in-person interactions between users.</p>
+        <p>When meeting another user, you agree to use reasonable caution, including:</p>
+        <ul>
+            <li>meeting in public or otherwise safe locations when possible;</li>
+            <li>limiting personal information shared;</li>
+            <li>avoiding entering private homes unless you choose to do so at your own risk;</li>
+            <li>using your own judgment about personal safety.</li>
+        </ul>
+        <p>If delivery features are offered in the future, tleten does not guarantee the safety, timing, condition, or temperature control of delivered Items unless expressly stated otherwise.</p>
+
+        <h2>11. Payments, Barter, Fees, and Refunds</h2>
+        <p>The Service may allow users to:</p>
+        <ul>
+            <li>barter or exchange Items;</li>
+            <li>give away Items for free;</li>
+            <li>reimburse costs;</li>
+            <li>pay for Items;</li>
+            <li>pay delivery fees; or</li>
+            <li>pay platform fees, service fees, subscription fees, or other charges.</li>
+        </ul>
+        <p>If payments are enabled:</p>
+        <ul>
+            <li>all payments are processed subject to any third-party payment processor terms;</li>
+            <li>you are responsible for any taxes, chargebacks, disputes, or payment obligations associated with your transactions;</li>
+            <li>tleten may charge fees, which will be disclosed before they are incurred;</li>
+            <li>unless required by law or expressly stated by us, all fees are non-refundable; and</li>
+            <li>disputes between users regarding value, quality, quantity, or fulfillment are primarily between those users.</li>
+        </ul>
+        <p>We reserve the right to withhold, delay, reverse, or refuse transactions where fraud, abuse, or policy violations are suspected.</p>
+
+        <h2>12. User Content License</h2>
+        <p>You retain ownership of the User Content you post, subject to the rights you grant below.</p>
+        <p>By submitting or posting User Content through the Service, you grant tleten a worldwide, non-exclusive, royalty-free, transferable, sublicensable license to host, store, reproduce, modify (for formatting or technical purposes), adapt, publish, display, distribute, and use such User Content in connection with operating, improving, promoting, marketing, and providing the Service.</p>
+        <p>You represent and warrant that:</p>
+        <ul>
+            <li>you own or have the rights necessary to post the User Content;</li>
+            <li>your User Content is accurate to the best of your knowledge;</li>
+            <li>your User Content does not violate any law, contract, or third-party rights; and</li>
+            <li>your User Content is not false, misleading, defamatory, obscene, or infringing.</li>
+        </ul>
+
+        <h2>13. Ratings, Reviews, and Community Features</h2>
+        <p>If the Service includes ratings, reviews, comments, follows, groups, or community features:</p>
+        <ul>
+            <li>you agree to use them honestly and respectfully;</li>
+            <li>reviews must reflect your genuine experience;</li>
+            <li>we may remove reviews or community content that we believe are abusive, fraudulent, irrelevant, or manipulative.</li>
+        </ul>
+        <p>We do not guarantee the accuracy or fairness of any ratings or reviews.</p>
+
+        <h2>14. Account Suspension and Termination</h2>
+        <p>We may, in our sole discretion and without liability, suspend, restrict, or terminate your access to the Service at any time, with or without notice, if:</p>
+        <ul>
+            <li>you violate these Terms;</li>
+            <li>you create safety risks;</li>
+            <li>you post prohibited Items;</li>
+            <li>you receive repeated complaints;</li>
+            <li>we suspect fraud, abuse, or illegal activity;</li>
+            <li>your conduct may expose other users or us to harm or liability; or</li>
+            <li>we discontinue all or part of the Service.</li>
+        </ul>
+        <p>Upon termination, your right to use the Service ends immediately. Certain provisions of these Terms will survive termination, including provisions relating to liability, disclaimers, indemnification, dispute resolution, and governing law.</p>
+
+        <h2>15. Third-Party Services</h2>
+        <p>The Service may integrate with or rely on third-party services, including but not limited to:</p>
+        <ul>
+            <li>authentication providers (such as Apple or Google),</li>
+            <li>payment processors,</li>
+            <li>cloud hosting,</li>
+            <li>maps/location services,</li>
+            <li>analytics,</li>
+            <li>messaging infrastructure,</li>
+            <li>push notifications, and</li>
+            <li>external links or social media platforms.</li>
+        </ul>
+        <p>We are not responsible for third-party services, and your use of those services may be subject to their own terms and privacy policies.</p>
+
+        <h2>16. Privacy</h2>
+        <p>Your use of the Service is also governed by our <a href="privacy.html">Privacy Policy</a>, which describes how we collect, use, store, and disclose your information.</p>
+        <p>By using the Service, you acknowledge that you have read and understood our Privacy Policy.</p>
+
+        <h2>17. Disclaimer of Warranties</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.</p>
+        <p>WITHOUT LIMITING THE FOREGOING, tleten DISCLAIMS ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</p>
+        <p>WE DO NOT WARRANT THAT:</p>
+        <ul>
+            <li>THE SERVICE WILL BE AVAILABLE, UNINTERRUPTED, SECURE, OR ERROR-FREE;</li>
+            <li>THE SERVICE WILL MEET YOUR EXPECTATIONS OR REQUIREMENTS;</li>
+            <li>ANY USER IS TRUSTWORTHY OR WILL ACT SAFELY;</li>
+            <li>ANY ITEM IS SAFE, LAWFUL, ACCURATELY DESCRIBED, FREE OF ALLERGENS, OR FIT FOR CONSUMPTION;</li>
+            <li>ANY EXCHANGE, DELIVERY, PICKUP, OR TRANSACTION WILL BE COMPLETED;</li>
+            <li>ANY DEFECTS OR ERRORS WILL BE CORRECTED.</li>
+        </ul>
+
+        <h2>18. Assumption of Risk</h2>
+        <p>YOU ACKNOWLEDGE THAT USE OF THE SERVICE INVOLVES RISKS, INCLUDING RISKS ASSOCIATED WITH:</p>
+        <ul>
+            <li>CONSUMING FOOD PREPARED BY OTHER USERS;</li>
+            <li>FOODBORNE ILLNESS;</li>
+            <li>ALLERGIC REACTIONS;</li>
+            <li>INGREDIENT MISLABELING;</li>
+            <li>CONTAMINATION;</li>
+            <li>IN-PERSON MEETUPS;</li>
+            <li>DELIVERY OR TRANSPORT OF PERISHABLE ITEMS;</li>
+            <li>FRAUD OR DISPUTES WITH OTHER USERS; AND</li>
+            <li>PROPERTY DAMAGE, PERSONAL INJURY, OR OTHER HARM.</li>
+        </ul>
+        <p>YOU VOLUNTARILY ASSUME ALL SUCH RISKS TO THE FULLEST EXTENT PERMITTED BY LAW.</p>
+
+        <h2>19. Release of Claims</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, YOU RELEASE AND DISCHARGE tleten, ITS FOUNDERS, OWNERS, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AGENTS, AFFILIATES, SUCCESSORS, AND ASSIGNS FROM ANY AND ALL CLAIMS, DEMANDS, CAUSES OF ACTION, DAMAGES, LOSSES, LIABILITIES, COSTS, AND EXPENSES OF ANY KIND, WHETHER KNOWN OR UNKNOWN, ARISING OUT OF OR RELATING TO:</p>
+        <ul>
+            <li>FOOD POISONING OR FOODBORNE ILLNESS;</li>
+            <li>ALLERGIC REACTIONS OR ANAPHYLAXIS;</li>
+            <li>INGREDIENT OR ALLERGEN NON-DISCLOSURE;</li>
+            <li>SPOILAGE, CONTAMINATION, OR IMPROPER STORAGE;</li>
+            <li>MISREPRESENTED OR ILLEGAL ITEMS;</li>
+            <li>PICKUP, DELIVERY, OR IN-PERSON MEETUPS;</li>
+            <li>DISPUTES, FRAUD, OR NON-PERFORMANCE BY OTHER USERS; OR</li>
+            <li>YOUR USE OF OR INABILITY TO USE THE SERVICE.</li>
+        </ul>
+
+        <h2>20. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, tleten AND ITS FOUNDERS, OWNERS, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:</p>
+        <ul>
+            <li>PERSONAL INJURY,</li>
+            <li>ILLNESS,</li>
+            <li>DEATH,</li>
+            <li>PROPERTY DAMAGE,</li>
+            <li>LOST PROFITS,</li>
+            <li>LOST DATA,</li>
+            <li>BUSINESS INTERRUPTION,</li>
+            <li>EMOTIONAL DISTRESS, OR</li>
+            <li>COST OF SUBSTITUTE GOODS OR SERVICES,</li>
+        </ul>
+        <p>ARISING OUT OF OR RELATING TO THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE SERVICE SHALL NOT EXCEED THE GREATER OF:</p>
+        <ol>
+            <li>THE TOTAL AMOUNT YOU PAID TO tleten IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR</li>
+            <li>ONE HUNDRED U.S. DOLLARS (US $100).</li>
+        </ol>
+
+        <h2>21. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless tleten and its founders, owners, officers, directors, employees, contractors, agents, affiliates, successors, and assigns from and against any and all claims, demands, actions, proceedings, liabilities, damages, judgments, settlements, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to:</p>
+        <ul>
+            <li>your use of the Service;</li>
+            <li>your User Content;</li>
+            <li>any Item you list, provide, request, exchange, sell, donate, or consume;</li>
+            <li>your violation of these Terms;</li>
+            <li>your violation of any law or regulation;</li>
+            <li>your interactions or disputes with other users; or</li>
+            <li>any injury, illness, damage, or loss caused by your acts or omissions.</li>
+        </ul>
+
+        <h2>22. Dispute Resolution; Informal Resolution First</h2>
+        <p>Before filing a legal claim, you agree to first contact us at <a href="mailto:support@tleten.com">support@tleten.com</a> and attempt to resolve the dispute informally for at least 30 days.</p>
+        <p>If we cannot resolve the dispute informally, either party may pursue the claim in accordance with these Terms.</p>
+
+        <h2>23. Governing Law and Venue</h2>
+        <p>These Terms and any dispute arising out of or relating to them or the Service shall be governed by the laws of the State of Alaska, without regard to conflict of law principles.</p>
+        <p>Unless otherwise required by law, any legal action arising out of or relating to these Terms or the Service shall be brought exclusively in the state or federal courts located in Alaska, and you consent to the personal jurisdiction of those courts.</p>
+
+        <h2>24. Modifications to the Service</h2>
+        <p>We reserve the right to modify, suspend, or discontinue all or any part of the Service at any time, with or without notice.</p>
+        <p>We will not be liable to you for any modification, suspension, or discontinuation of the Service.</p>
+
+        <h2>25. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time.</p>
+        <p>If we make material changes, we may provide notice through the Service, by email, or by other reasonable means. Your continued use of the Service after the updated Terms become effective constitutes your acceptance of the revised Terms.</p>
+        <p>If you do not agree to the revised Terms, you must stop using the Service.</p>
+
+        <h2>26. Electronic Communications and Consent</h2>
+        <p>By creating an account or using the Service, you consent to receive communications from us electronically, including:</p>
+        <ul>
+            <li>emails,</li>
+            <li>push notifications,</li>
+            <li>in-app messages,</li>
+            <li>legal notices,</li>
+            <li>transactional messages, and</li>
+            <li>service updates.</li>
+        </ul>
+        <p>You agree that such electronic communications satisfy any legal requirement that communications be in writing.</p>
+
+        <h2>27. No Waiver</h2>
+        <p>Our failure to enforce any provision of these Terms is not a waiver of our right to do so later.</p>
+
+        <h2>28. Severability</h2>
+        <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable, the remaining provisions will remain in full force and effect to the maximum extent permitted by law.</p>
+
+        <h2>29. Entire Agreement</h2>
+        <p>These Terms, together with our <a href="privacy.html">Privacy Policy</a> and any additional policies or guidelines we post (such as <a href="guidelines.html">Community Guidelines</a>, Food Safety Guidelines, or Payment Terms), constitute the entire agreement between you and tleten regarding the Service and supersede any prior agreements or understandings relating to the Service.</p>
+
+        <h2>30. Contact Information</h2>
+        <p>If you have questions about these Terms, you may contact us at:</p>
+        <p>tleten<br>Email: <a href="mailto:support@tleten.com">support@tleten.com</a></p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 tleten. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
