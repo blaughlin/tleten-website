@@ -1,9 +1,9 @@
-# Privacy Policy for tleten
+# Privacy Policy for Tleten LLC
 
 **Effective Date:** 3/17/2026  
 **Last Updated:** 3/17/2026
 
-This Privacy Policy explains how tleten (“we,” “us,” or “our”) collects, uses, stores, and shares information when you use the tleten mobile application, website, and related services (collectively, the “Service”).
+This Privacy Policy explains how Tleten LLC (“we,” “us,” or “our”) collects, uses, stores, and shares information when you use the tleten mobile application, website, and related services (collectively, the “Service”).
 
 By using the Service, you agree to this Privacy Policy.
 
@@ -180,5 +180,5 @@ If we make material changes, we may provide notice through the Service, by email
 If you have questions about this Privacy Policy or want to submit a privacy-related request, contact us at:
 
 
-tleten  
+Tleten LLC
 Email: support@tleten.com

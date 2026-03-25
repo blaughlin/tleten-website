@@ -1,9 +1,9 @@
-# Terms of Service for tleten
+# Terms of Service for Tleten LLC
 
 **Effective Date:** 3/17/2026  
 **Last Updated:** 3/17/2026
 
-Welcome to tleten (“tleten,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of the tleten mobile application, website, and related services (collectively, the “Service”).
+Welcome to tleten (“Tleten LLC,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of the tleten mobile application, website, and related services (collectively, the “Service”).
 
 By creating an account, accessing, or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Service.
 
@@ -352,5 +352,5 @@ These Terms, together with our Privacy Policy and any additional policies or gui
 If you have questions about these Terms, you may contact us at:
 
 
-tleten  
+Tleten LLC
 Email: support@tleten.com
