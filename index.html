@@ -56,6 +56,7 @@
             background: var(--surface);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         /* Nav — Glassmorphism */
@@ -557,12 +558,26 @@
             }
 
             .hero-text h1 {
-                font-size: 2.4rem;
+                font-size: 2rem;
+            }
+
+            .hero-text h1 .line1 {
+                white-space: normal;
             }
 
             .hero-text p {
                 margin-left: auto;
                 margin-right: auto;
+                font-size: 1rem;
+            }
+
+            .app-store-btn {
+                padding: 14px 24px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
             }
 
             .features {
@@ -570,7 +585,7 @@
             }
 
             .features-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 gap: 16px;
             }
 
@@ -613,6 +628,45 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .hero {
+                padding: 36px 16px;
+                gap: 36px;
+            }
+
+            .hero-logo {
+                height: 70px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            .features,
+            .how-it-works,
+            .why-tleten,
+            .cta {
+                padding: 48px 16px;
+            }
+
+            .cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .phone {
+                width: 220px;
+                height: 440px;
+            }
+
+            footer {
+                padding: 32px 16px;
             }
         }
     </style>
