@@ -331,6 +331,40 @@
             padding: 16px 0;
         }
 
+        .waitlist-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            margin-top: 16px;
+        }
+
+        .waitlist-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-ambient);
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .waitlist-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         /* Phone mockup */
         .phone-mockup {
             display: flex;
@@ -716,6 +750,11 @@
                 padding: 32px 24px;
             }
 
+            .waitlist-btn {
+                padding: 14px 24px;
+                font-size: 0.9rem;
+            }
+
             .section-title {
                 font-size: 1.6rem;
             }
@@ -989,6 +1028,10 @@
             Download on the App Store
         </a>
         <p class="waitlist-link">Not on iOS? <a href="#" onclick="openWaitlist(event)">Get notified of updates</a></p>
+        <a href="#" class="waitlist-btn" onclick="openWaitlist(event)">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Join the Waitlist
+        </a>
     </section>
     </main>
 
