@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — tleten</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --surface-container: #f0eee9;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link {
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--sans);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        /* Article */
+        .post-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 40px 32px;
+        }
+
+        .post-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+            transition: opacity 0.2s;
+        }
+
+        .post-back:hover {
+            opacity: 0.7;
+        }
+
+        .post-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            background: var(--primary-fixed);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+        }
+
+        .post-title {
+            font-family: var(--sans);
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--on-surface);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            opacity: 0.7;
+        }
+
+        .post-hero-image {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .post-hero-image img {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            margin-bottom: 40px;
+        }
+
+        /* Markdown content */
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        .post-content h2 {
+            font-family: var(--sans);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 40px 0 16px;
+            color: var(--on-surface);
+        }
+
+        .post-content h3 {
+            font-family: var(--sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 32px 0 12px;
+            color: var(--on-surface);
+        }
+
+        .post-content p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--on-surface);
+        }
+
+        .post-content ul, .post-content ol {
+            margin: 0 0 16px 24px;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .post-content li {
+            margin-bottom: 6px;
+        }
+
+        .post-content blockquote {
+            border-left: 4px solid var(--primary-fixed);
+            padding: 12px 20px;
+            margin: 24px 0;
+            background: var(--surface-container-low);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            font-style: italic;
+            color: var(--on-surface-variant);
+        }
+
+        .post-content img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+            margin: 24px 0;
+        }
+
+        .post-content code {
+            background: var(--surface-container);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .post-content pre {
+            background: var(--on-surface);
+            color: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .post-content hr {
+            border: none;
+            border-top: 1px solid var(--outline-variant);
+            margin: 40px 0;
+        }
+
+        .post-content a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .post-content strong {
+            font-weight: 700;
+        }
+
+        /* Loading / Error */
+        .post-loading, .post-error {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            text-align: center;
+            color: var(--on-surface-variant);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 14px 20px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .post-header {
+                padding: 60px 20px 24px;
+            }
+
+            .post-title {
+                font-size: 1.8rem;
+            }
+
+            .post-hero-image {
+                padding: 0 20px;
+            }
+
+            .post-content {
+                padding: 0 20px 60px;
+            }
+
+            .post-loading, .post-error {
+                padding: 80px 20px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="nav-brand">tleten</a>
+        <div class="nav-links">
+            <a href="../blog.html" class="nav-link">Blog</a>
+            <a href="../index.html#download" class="nav-cta">Get the App</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="post-loading" id="postLoading">Loading...</div>
+
+        <article id="postArticle" style="display: none;">
+            <header class="post-header">
+                <a href="../blog.html" class="post-back">&larr; Back to Blog</a>
+                <div id="postTag"></div>
+                <h1 class="post-title" id="postTitle"></h1>
+                <p class="post-meta" id="postMeta"></p>
+            </header>
+            <div class="post-hero-image" id="postHeroImage"></div>
+            <div class="post-content" id="postContent"></div>
+        </article>
+
+        <div class="post-error" id="postError" style="display: none;">
+            <p>Post not found.</p>
+            <p style="margin-top: 16px;"><a href="../blog.html" style="color: var(--primary);">&larr; Back to Blog</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="../logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../privacy.html">Privacy Policy</a></li>
+                <li><a href="../terms.html">Terms of Service</a></li>
+                <li><a href="../guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="margin-bottom: 8px;">&copy; 2026 Tleten LLC. All rights reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Food sale availability may vary by location. Users are responsible for following local food laws and regulations.</p>
+        </div>
+    </footer>
+
+    <!-- Minimal Markdown parser — no dependencies -->
+    <script>
+        function parseMarkdown(md) {
+            let html = md
+                // Code blocks
+                .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+                // Headings
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                // Horizontal rules
+                .replace(/^---$/gm, '<hr>')
+                // Bold & italic
+                .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                // Images
+                .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+                // Links
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+                // Inline code
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                // Blockquotes
+                .replace(/^> (.+)$/gm, '<blockquote><p>$1</p></blockquote>');
+
+            // Process unordered lists
+            html = html.replace(/(?:^[-*] .+\n?)+/gm, function(match) {
+                const items = match.trim().split('\n').map(line =>
+                    '<li>' + line.replace(/^[-*] /, '') + '</li>'
+                ).join('\n');
+                return '<ul>\n' + items + '\n</ul>';
+            });
+
+            // Process ordered lists
+            html = html.replace(/(?:^\d+\. .+\n?)+/gm, function(match) {
+                const items = match.trim().split('\n').map(line =>
+                    '<li>' + line.replace(/^\d+\. /, '') + '</li>'
+                ).join('\n');
+                return '<ol>\n' + items + '\n</ol>';
+            });
+
+            // Paragraphs — wrap remaining loose text
+            html = html.split('\n\n').map(block => {
+                block = block.trim();
+                if (!block) return '';
+                if (/^<(h[1-6]|ul|ol|pre|blockquote|hr|img)/.test(block)) return block;
+                return '<p>' + block.replace(/\n/g, '<br>') + '</p>';
+            }).join('\n');
+
+            return html;
+        }
+
+        async function loadPost() {
+            const slug = new URLSearchParams(window.location.search).get('slug');
+            const loading = document.getElementById('postLoading');
+            const article = document.getElementById('postArticle');
+            const error = document.getElementById('postError');
+
+            if (!slug) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                return;
+            }
+
+            try {
+                // Load post metadata
+                const metaRes = await fetch('posts.json');
+                const posts = await metaRes.json();
+                const post = posts.find(p => p.slug === slug);
+
+                if (!post) throw new Error('Not found');
+
+                // Load markdown content
+                const mdRes = await fetch(`posts/${slug}.md`);
+                if (!mdRes.ok) throw new Error('Not found');
+                const md = await mdRes.text();
+
+                // Set page title
+                document.title = `${post.title} — tleten Blog`;
+
+                // Render header
+                if (post.tag) {
+                    document.getElementById('postTag').innerHTML = `<span class="post-tag">${post.tag}</span>`;
+                }
+                document.getElementById('postTitle').textContent = post.title;
+                document.getElementById('postMeta').textContent = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                });
+
+                // Hero image
+                if (post.image) {
+                    document.getElementById('postHeroImage').innerHTML = `<img src="posts/${post.image}" alt="${post.title}">`;
+                }
+
+                // Render markdown
+                document.getElementById('postContent').innerHTML = parseMarkdown(md);
+
+                loading.style.display = 'none';
+                article.style.display = 'block';
+            } catch (e) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+            }
+        }
+
+        loadPost();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — tleten</title>
+    <meta name="description" content="Recipes, neighbor stories, freezer swap ideas, and more from the tleten community.">
+    <link rel="canonical" href="https://tleten.com/blog.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog — tleten">
+    <meta property="og:description" content="Recipes, neighbor stories, freezer swap ideas, and more from the tleten community.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tleten.com/blog.html">
+    <meta property="og:image" content="https://tleten.com/hero-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37563b;
+            --primary-container: #4f6f52;
+            --on-primary: #ffffff;
+            --secondary: #fc7127;
+            --surface: #fbf9f4;
+            --surface-container-low: #f5f3ee;
+            --surface-container: #f0eee9;
+            --on-surface: #1b1c19;
+            --on-surface-variant: #424841;
+            --primary-fixed: #c8ecc8;
+            --outline-variant: rgba(66, 72, 65, 0.15);
+            --serif: 'Noto Serif', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 9999px;
+            --shadow-ambient: 0px 12px 32px rgba(27, 28, 25, 0.06);
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-brand {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link {
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--sans);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-container));
+            color: var(--on-primary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--sans);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        /* Blog Header */
+        .blog-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px 48px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-family: var(--sans);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--on-surface);
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+
+        .blog-header p {
+            font-size: 1.1rem;
+            color: var(--on-surface-variant);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .blog-card {
+            background: var(--surface-container-low);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-ambient);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--surface-container);
+        }
+
+        .blog-card-body {
+            padding: 24px;
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            background: var(--primary-fixed);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 12px;
+        }
+
+        .blog-card-title {
+            font-family: var(--sans);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: var(--on-surface-variant);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .blog-card-date {
+            font-size: 0.8rem;
+            color: var(--on-surface-variant);
+            opacity: 0.7;
+        }
+
+        /* Empty State */
+        .blog-empty {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 40px 120px;
+            text-align: center;
+        }
+
+        .blog-empty-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .blog-empty p {
+            font-size: 1.05rem;
+            color: var(--on-surface-variant);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--on-surface);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 56px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand-section img {
+            height: 32px;
+            width: auto;
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand-sub {
+            font-size: 0.9rem;
+        }
+
+        .footer-brand-sub strong {
+            color: var(--on-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--on-primary);
+        }
+
+        .footer-contact a {
+            color: var(--primary-fixed);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 14px 20px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .blog-header {
+                padding: 60px 20px 36px;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px 60px;
+                gap: 24px;
+            }
+
+            .blog-empty {
+                padding: 40px 20px 80px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">tleten</a>
+        <div class="nav-links">
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="index.html#download" class="nav-cta">Get the App</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="blog-header">
+            <h1>From the Table</h1>
+            <p>Recipes, neighbor stories, freezer swap ideas, and more from the tleten community.</p>
+        </section>
+
+        <div class="blog-grid" id="blogGrid"></div>
+
+        <div class="blog-empty" id="blogEmpty" style="display: none;">
+            <div class="blog-empty-icon">&#x1f331;</div>
+            <p>Posts are coming soon — check back for recipes, swap ideas, and community stories.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-section">
+                <img src="logo.png" alt="tleten">
+                <p class="footer-brand-sub">A <strong>tleten</strong> app</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="guidelines.html">Community Guidelines</a></li>
+            </ul>
+            <div class="footer-contact">
+                <a href="mailto:support@tleten.com">support@tleten.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="margin-bottom: 8px;">&copy; 2026 Tleten LLC. All rights reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Food sale availability may vary by location. Users are responsible for following local food laws and regulations.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadPosts() {
+            const grid = document.getElementById('blogGrid');
+            const empty = document.getElementById('blogEmpty');
+
+            try {
+                const res = await fetch('blog/posts.json');
+                const posts = await res.json();
+
+                if (posts.length === 0) {
+                    grid.style.display = 'none';
+                    empty.style.display = 'block';
+                    return;
+                }
+
+                // Sort by date descending
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                grid.innerHTML = posts.map(post => `
+                    <a href="blog/post.html?slug=${post.slug}" class="blog-card">
+                        ${post.image ? `<img class="blog-card-image" src="blog/posts/${post.image}" alt="${post.title}">` : `<div class="blog-card-image"></div>`}
+                        <div class="blog-card-body">
+                            ${post.tag ? `<span class="blog-card-tag">${post.tag}</span>` : ''}
+                            <h2 class="blog-card-title">${post.title}</h2>
+                            <p class="blog-card-excerpt">${post.excerpt}</p>
+                            <time class="blog-card-date">${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                        </div>
+                    </a>
+                `).join('');
+            } catch (e) {
+                grid.style.display = 'none';
+                empty.style.display = 'block';
+            }
+        }
+
+        loadPosts();
+    </script>
+
+</body>
+</html>
