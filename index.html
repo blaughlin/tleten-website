@@ -118,6 +118,20 @@
             box-shadow: var(--shadow-ambient);
         }
 
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-hamburger svg {
+            width: 28px;
+            height: 28px;
+            color: var(--on-surface);
+        }
+
         /* Hero */
         .hero {
             display: grid;
@@ -704,10 +718,35 @@
         @media (max-width: 768px) {
             nav {
                 padding: 12px 20px;
+                flex-wrap: wrap;
             }
 
-            .nav-link {
+            .nav-hamburger {
+                display: block;
+            }
+
+            .nav-links {
                 display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                padding-top: 12px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links .nav-link {
+                display: block;
+                padding: 12px 0;
+                font-size: 1rem;
+                border-top: 1px solid rgba(0,0,0,0.06);
+            }
+
+            .nav-links .nav-cta {
+                margin-top: 12px;
+                text-align: center;
             }
 
             .hero {
@@ -893,6 +932,9 @@
     <!-- Nav -->
     <nav>
         <a href="#" class="nav-brand">tleten</a>
+        <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
         <div class="nav-links">
             <a href="#features" class="nav-link">What You Can Do</a>
             <a href="#how-it-works" class="nav-link">How It Works</a>
