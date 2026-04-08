@@ -590,6 +590,13 @@
             line-height: 1.6;
         }
 
+        .step video {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
         .step-connector {
             display: flex;
             align-items: center;
@@ -1038,18 +1045,21 @@
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
+                <video src="videos/post.mp4" muted playsinline loop preload="metadata"></video>
                 <h3>Post</h3>
                 <p>Share what you've made, grown, or gathered. Add photos and a quick description.</p>
             </div>
             <div class="step-connector" aria-hidden="true">&rarr;</div>
             <div class="step">
                 <div class="step-number">2</div>
+                <video src="videos/match.mp4" muted playsinline loop preload="metadata"></video>
                 <h3>Match</h3>
                 <p>Browse your neighbors' posts and show interest. When it's mutual, you're matched.</p>
             </div>
             <div class="step-connector" aria-hidden="true">&rarr;</div>
             <div class="step">
                 <div class="step-number">3</div>
+                <video src="videos/arrange.mp4" muted playsinline loop preload="metadata"></video>
                 <h3>Arrange</h3>
                 <p>Message your match to work out the details and enjoy your food swap.</p>
             </div>
@@ -1147,6 +1157,32 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        // How It Works videos: hover to play on desktop, autoplay on scroll for mobile
+        document.querySelectorAll('.step video').forEach(video => {
+            video.addEventListener('mouseenter', () => video.play());
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+
+        if ('ontouchstart' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play();
+                    } else {
+                        entry.target.pause();
+                        entry.target.currentTime = 0;
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.step video').forEach(video => observer.observe(video));
+        }
     </script>
 
 </body>
