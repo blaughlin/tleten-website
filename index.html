@@ -775,6 +775,14 @@
                 flex-wrap: wrap;
             }
 
+            .nav-brand {
+                font-size: 1.25rem;
+            }
+
+            .nav-brand img {
+                height: 36px;
+            }
+
             .nav-hamburger {
                 display: block;
             }
@@ -811,6 +819,11 @@
             }
 
 
+            .hero-wrapper::after {
+                background-position: 80% bottom;
+                opacity: 0.35;
+            }
+
             .hero-text h1 {
                 font-size: 2rem;
             }
@@ -823,6 +836,10 @@
                 margin-left: auto;
                 margin-right: auto;
                 font-size: 1rem;
+            }
+
+            .hero-text .app-store-btn {
+                margin-top: 32px;
             }
 
             .app-store-btn {
@@ -852,7 +869,7 @@
             }
 
             .features-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
             }
 
@@ -936,9 +953,17 @@
         }
 
         @media (max-width: 390px) {
+            .nav-brand img {
+                height: 30px;
+            }
+
             .hero {
                 padding: 36px 16px;
                 gap: 36px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
 
