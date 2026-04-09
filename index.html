@@ -607,26 +607,40 @@
 
         /* Why tleten */
         .why-tleten {
+            position: relative;
+            padding: 120px 40px;
+            text-align: center;
+            background: url('woodLadle.png') center/cover no-repeat;
+        }
+
+        .why-tleten::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .why-tleten-text {
+            position: relative;
             max-width: 680px;
             margin: 0 auto;
-            padding: 80px 40px;
-            text-align: center;
         }
 
         .why-tleten .section-title {
             margin-bottom: 24px;
+            color: #fff;
         }
 
         .why-tleten p {
             font-size: 1.1rem;
-            color: var(--on-surface-variant);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.8;
         }
 
         .why-tleten .word-highlight {
             font-family: var(--serif);
             font-style: italic;
-            color: var(--primary);
+            color: var(--primary-fixed);
             font-weight: 700;
         }
 
@@ -870,7 +884,7 @@
             }
 
             .why-tleten {
-                padding: 64px 24px;
+                padding: 80px 24px;
             }
 
             .cta {
@@ -1068,8 +1082,10 @@
 
     <!-- Why tleten -->
     <section class="why-tleten" id="why-tleten">
-        <h2 class="section-title">Why tleten?</h2>
-        <p><span class="word-highlight">tleten</span> comes from the Koyukon Athabaskan word <span class="word-highlight">tleten'</span>, meaning a ladle used to serve hot food. It felt like the right name for an app built around sharing what we make, grow, and gather — and connecting with neighbors through local food.</p>
+        <div class="why-tleten-text">
+            <h2 class="section-title">Why tleten?</h2>
+            <p><span class="word-highlight">tleten</span> comes from the Koyukon Athabaskan word <span class="word-highlight">tleten'</span>, meaning a ladle used to serve hot food. It felt like the right name for an app built around sharing what we make, grow, and gather — and connecting with neighbors through local food.</p>
+        </div>
     </section>
 
     <!-- CTA -->
