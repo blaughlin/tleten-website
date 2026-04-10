@@ -52,7 +52,7 @@ If you're in **Anchorage specifically**, note that the Municipality has its own 
 
 ![Two attractive neighbors exchanging homemade food jars across a fence in Fairbanks Alaska, one person part Alaska Native, warm golden light, birch trees in background](./images/people-share.png)
 
-I've lived here long enough to know that Fairbanks has always had its own food economy running quietly in the background. Jars passed over fences. Extra garden rhubarb traded for pickled garlic. A neighbor who makes the best birch syrup you've ever tasted but has no way to sell it officially.
+I've lived here long enough to know that Fairbanks has always had its own food economy running quietly in the background. Jars passed over fences. Extra garden rhubarb traded for low bush cranberries. A neighbor who makes the best birch syrup you've ever tasted but has no way to sell it officially.
 
 That informal economy exists everywhere, but it's especially meaningful in Interior Alaska — where growing seasons are short and intense, where people put food by out of genuine necessity, where the cost of groceries at the end of a long winter is real, and where the skills of fermentation, preservation, and scratch cooking are passed down and valued.
 
@@ -86,7 +86,6 @@ If you're ready to start selling homemade food in Alaska, here's a short checkli
 2. **Know your food type** — is it perishable (needs refrigeration) or shelf-stable? The answer affects where and how you can sell it
 3. **Label everything** — name, address, phone, business license number, and the required statement
 4. **Check local rules** — especially if you're in Anchorage
-5. **When in doubt, test** — the Alaska State Environmental Health Laboratory can test pH and water activity for $10–$20 per sample if you're uncertain whether your product is potentially hazardous
 
 The UAF Cooperative Extension Service also runs workshops and consults with homemade food producers across Alaska — they're an excellent resource if you want guidance beyond what's written here.
 
