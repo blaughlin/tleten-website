@@ -403,7 +403,7 @@
                 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 grid.innerHTML = posts.map(post => `
-                    <a href="blog/post.html?slug=${post.slug}" class="blog-card">
+                    <a href="blog/${post.slug}.html" class="blog-card">
                         ${post.image ? `<img class="blog-card-image" src="blog/posts/${post.image}" alt="${post.title}">` : `<div class="blog-card-image"></div>`}
                         <div class="blog-card-body">
                             ${post.tag ? `<span class="blog-card-tag">${post.tag}</span>` : ''}

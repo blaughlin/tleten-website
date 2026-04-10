@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — tleten</title>
+    <title>{{TITLE}} — tleten Blog</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{CANONICAL_URL}}">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="article:published_time" content="{{PUBLISHED_TIME}}">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -258,15 +272,6 @@
             font-weight: 700;
         }
 
-        /* Loading / Error */
-        .post-loading, .post-error {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 120px 40px;
-            text-align: center;
-            color: var(--on-surface-variant);
-        }
-
         /* Footer */
         footer {
             background: var(--on-surface);
@@ -360,10 +365,6 @@
                 padding: 0 20px 60px;
             }
 
-            .post-loading, .post-error {
-                padding: 80px 20px;
-            }
-
             footer {
                 padding: 40px 20px;
             }
@@ -392,23 +393,16 @@
     </nav>
 
     <main>
-        <div class="post-loading" id="postLoading">Loading...</div>
-
-        <article id="postArticle" style="display: none;">
+        <article>
             <header class="post-header">
                 <a href="../blog.html" class="post-back">&larr; Back to Blog</a>
-                <div id="postTag"></div>
-                <h1 class="post-title" id="postTitle"></h1>
-                <p class="post-meta" id="postMeta"></p>
+                {{TAG_HTML}}
+                <h1 class="post-title">{{TITLE}}</h1>
+                <p class="post-meta">{{FORMATTED_DATE}}</p>
             </header>
-            <div class="post-hero-image" id="postHeroImage"></div>
-            <div class="post-content" id="postContent"></div>
+            {{HERO_IMAGE_HTML}}
+            <div class="post-content">{{CONTENT_HTML}}</div>
         </article>
-
-        <div class="post-error" id="postError" style="display: none;">
-            <p>Post not found.</p>
-            <p style="margin-top: 16px;"><a href="../blog.html" style="color: var(--primary);">&larr; Back to Blog</a></p>
-        </div>
     </main>
 
     <footer>
@@ -431,118 +425,6 @@
             <p style="font-size: 0.8rem; opacity: 0.7;">Food sale availability may vary by location. Users are responsible for following local food laws and regulations.</p>
         </div>
     </footer>
-
-    <!-- Minimal Markdown parser — no dependencies -->
-    <script>
-        function parseMarkdown(md) {
-            let html = md
-                // Code blocks
-                .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
-                // Headings
-                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-                // Horizontal rules
-                .replace(/^---$/gm, '<hr>')
-                // Bold & italic
-                .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                // Images
-                .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, src) => {
-                    // Absolute URLs and root-relative paths pass through unchanged;
-                    // relative paths are resolved against the post's folder.
-                    const resolved = /^(https?:|\/)/.test(src) ? src : 'posts/' + src.replace(/^\.\//, '');
-                    return `<img src="${resolved}" alt="${alt}">`;
-                })
-                // Links
-                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-                // Inline code
-                .replace(/`([^`]+)`/g, '<code>$1</code>')
-                // Blockquotes
-                .replace(/^> (.+)$/gm, '<blockquote><p>$1</p></blockquote>');
-
-            // Process unordered lists
-            html = html.replace(/(?:^[-*] .+\n?)+/gm, function(match) {
-                const items = match.trim().split('\n').map(line =>
-                    '<li>' + line.replace(/^[-*] /, '') + '</li>'
-                ).join('\n');
-                return '<ul>\n' + items + '\n</ul>';
-            });
-
-            // Process ordered lists
-            html = html.replace(/(?:^\d+\. .+\n?)+/gm, function(match) {
-                const items = match.trim().split('\n').map(line =>
-                    '<li>' + line.replace(/^\d+\. /, '') + '</li>'
-                ).join('\n');
-                return '<ol>\n' + items + '\n</ol>';
-            });
-
-            // Paragraphs — wrap remaining loose text
-            html = html.split('\n\n').map(block => {
-                block = block.trim();
-                if (!block) return '';
-                if (/^<(h[1-6]|ul|ol|pre|blockquote|hr|img)/.test(block)) return block;
-                return '<p>' + block.replace(/\n/g, '<br>') + '</p>';
-            }).join('\n');
-
-            return html;
-        }
-
-        async function loadPost() {
-            const slug = new URLSearchParams(window.location.search).get('slug');
-            const loading = document.getElementById('postLoading');
-            const article = document.getElementById('postArticle');
-            const error = document.getElementById('postError');
-
-            if (!slug) {
-                loading.style.display = 'none';
-                error.style.display = 'block';
-                return;
-            }
-
-            try {
-                // Load post metadata
-                const metaRes = await fetch('posts.json');
-                const posts = await metaRes.json();
-                const post = posts.find(p => p.slug === slug);
-
-                if (!post) throw new Error('Not found');
-
-                // Load markdown content
-                const mdRes = await fetch(`posts/${slug}.md`);
-                if (!mdRes.ok) throw new Error('Not found');
-                const md = await mdRes.text();
-
-                // Set page title
-                document.title = `${post.title} — tleten Blog`;
-
-                // Render header
-                if (post.tag) {
-                    document.getElementById('postTag').innerHTML = `<span class="post-tag">${post.tag}</span>`;
-                }
-                document.getElementById('postTitle').textContent = post.title;
-                document.getElementById('postMeta').textContent = new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric', month: 'long', day: 'numeric'
-                });
-
-                // Hero image
-                if (post.image) {
-                    document.getElementById('postHeroImage').innerHTML = `<img src="posts/${post.image}" alt="${post.title}">`;
-                }
-
-                // Render markdown
-                document.getElementById('postContent').innerHTML = parseMarkdown(md);
-
-                loading.style.display = 'none';
-                article.style.display = 'block';
-            } catch (e) {
-                loading.style.display = 'none';
-                error.style.display = 'block';
-            }
-        }
-
-        loadPost();
-    </script>
 
 </body>
 </html>
