@@ -448,7 +448,12 @@
                 .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.+?)\*/g, '<em>$1</em>')
                 // Images
-                .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+                .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, src) => {
+                    // Absolute URLs and root-relative paths pass through unchanged;
+                    // relative paths are resolved against the post's folder.
+                    const resolved = /^(https?:|\/)/.test(src) ? src : 'posts/' + src.replace(/^\.\//, '');
+                    return `<img src="${resolved}" alt="${alt}">`;
+                })
                 // Links
                 .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
                 // Inline code
