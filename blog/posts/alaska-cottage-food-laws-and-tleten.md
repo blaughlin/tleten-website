@@ -4,8 +4,6 @@
 
 ---
 
-![Birch tree being tapped in interior Alaska, clear sap dripping into a metal bucket in warm spring sunlight](./images/birch.png)
-
 Last spring I made a batch of birch syrup. It was good — genuinely good — and I had more than I could ever use. What I wanted was simple: to give some away, maybe trade a bottle for a neighbor's sourdough, sell a few to cover the cost of tapping and boiling. What I didn't want was to wade through permits, inspections, and commercial kitchen requirements just to share food with my neighborhood.
 
 Turns out, in Alaska, I didn't have to.
