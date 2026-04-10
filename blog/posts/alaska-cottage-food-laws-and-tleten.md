@@ -28,7 +28,7 @@ Here's what changed and what it means in plain terms:
 
 **You can sell online and at markets.** Non-perishable homemade foods can be sold online (within Alaska), at farmers markets, from your home, at roadside stands, and at events. Perishable foods have to be sold directly by you to the consumer.
 
-**You do need a business license.** This is the one formal requirement — a standard Alaska business license. It's not complicated, but it's not optional either.
+**You likely need a business license.** Alaska requires one for anyone regularly selling goods or services. At $25/year it's straightforward to get online at the [Alaska Division of Corporations and Business Licensing](https://www.commerce.alaska.gov/web/cbpl/BusinessLicensing/NewBLOnline). If you're selling only very occasionally, a narrow exemption may apply — but when in doubt, get licensed.
 
 **Labeling is required.** Any packaged food needs a label with your name, address, phone number, business license number, and a statement that it was made in a home kitchen and is not state-inspected.
 
@@ -82,7 +82,7 @@ If you're a cottage food maker in Fairbanks — or you want to be — Tleten is 
 
 If you're ready to start selling homemade food in Alaska, here's a short checklist:
 
-1. **Get an Alaska business license** — apply at the state's Division of Corporations website
+1. **Get an Alaska business license** — [apply online here](https://www.commerce.alaska.gov/web/cbpl/BusinessLicensing/NewBLOnline) ($25/year, posts immediately)
 2. **Know your food type** — is it perishable (needs refrigeration) or shelf-stable? The answer affects where and how you can sell it
 3. **Label everything** — name, address, phone, business license number, and the required statement
 4. **Check local rules** — especially if you're in Anchorage
