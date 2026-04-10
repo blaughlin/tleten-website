@@ -76,7 +76,7 @@ If you're a cottage food maker in Fairbanks — or you want to be — Tleten is 
 
 ![Overhead flat lay of homemade food items ready to share: jars of jam, a loaf of bread, dried herbs, handwritten note on a worn wooden surface](./images/final.png)
 
-**[Download Tleten on the App Store →](https://apps.apple.com/app/tleten)**
+**[Download Tleten on the App Store →](https://apps.apple.com/us/app/tleten/id6761312133)**
 
 ---
 
@@ -96,4 +96,4 @@ The UAF Cooperative Extension Service also runs workshops and consults with home
 
 *This post is for informational purposes only and does not constitute legal advice. Laws change; always verify current requirements with the Alaska Department of Environmental Conservation or a qualified attorney before selling homemade food.*
 
-*Tleten is an iOS app connecting Fairbanks neighbors through homemade food. [Download it free on the App Store.](https://apps.apple.com/app/tleten)*
+*Tleten is an iOS app connecting Fairbanks neighbors through homemade food. [Download it free on the App Store.](https://apps.apple.com/us/app/tleten/id6761312133)*
